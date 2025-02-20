@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const Card = ({ header = "" }) => (
-  <div className="w-[300px] h-[300px] rounded-xl border shadow text-black p-4 flex flex-col gap-2">
+  <div className="w-[300px] h-[300px] rounded-xl border shadow text-black p-4 flex flex-col gap-2 bg-white">
     <div className="bg-slate-200 rounded-md h-[70%] overflow-hidden relative">
       <Image src="/dummy.jpg" alt="" layout="fill" objectFit="cover" />
     </div>
@@ -30,7 +30,7 @@ export default function Home() {
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const gap = 16;
-  const speed = 5000; 
+  const speed = 10000; 
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -82,6 +82,25 @@ export default function Home() {
             <Card header={card.text} />
           </div>
         ))}
+      </div>
+      <div className="w-full justify-items-center">
+        <div className="w-[800px] h-[400px] overflow-hidden flex relative">
+          <div className="w-[100%] h-[100%] absolute shadow-[inset_0_0_10px_10px_rgba(250,250,250,1)] z-10"/>
+          <div className="grid grid-cols-2 gap-4 justify-items-center h-full [w-50%] relative scrollAnimation">
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />
+            <Card header={"Text"} />   
+          </div>
+        </div>
       </div>
     </div>
   );

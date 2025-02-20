@@ -20,3 +20,16 @@ body {
   background: var(--background);
   font-family: "Inter", Helvetica, sans-serif;
 }
+
+.scrollAnimation {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+      transform: rotateX(-16deg) rotate(16deg) skewX(-16deg) translateZ(0) translateY(0%)
+  }
+  to {
+      transform: rotateX(-16deg) rotate(16deg) skewX(-16deg) translateZ(0) translateY(-100%)
+  }
+}
