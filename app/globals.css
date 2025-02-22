@@ -20,16 +20,16 @@ body {
 }
 
 .scrollAnimation {
-  animation: scroll 20s linear infinite;
+  animation: scroll-keyframes 20s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes scroll-keyframes {
   from {
-    transform: rotateX(-16deg) rotate(16deg) skewX(-16deg) translateZ(0)
+    transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
       translateY(0%);
   }
   to {
-    transform: rotateX(-16deg) rotate(16deg) skewX(-16deg) translateZ(0)
+    transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
       translateY(-100%);
   }
 }
