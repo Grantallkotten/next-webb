@@ -4,8 +4,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #04050f;
-  --foreground: #171717;
+  --background: #edeff8;
+  --foreground: #04050f;
 }
 
 body {
@@ -14,22 +14,44 @@ body {
   font-family: "Inter", Helvetica, sans-serif;
 }
 
-.card:hover {
+.card {
   transition: all 200ms ease-in-out;
+}
+
+.card:hover {
   transform: scale(1.05);
 }
 
 .scrollAnimation {
-  animation: scroll-keyframes 20s linear infinite;
+  animation: scroll-keyframes 60s linear infinite;
+}
+
+.fadeAnimation {
+  animation: fade-keyframes 60s linear infinite;
 }
 
 @keyframes scroll-keyframes {
   from {
     transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
-      translateY(0%);
+      translateY(-30%);
   }
   to {
     transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
-      translateY(-100%);
+      translateY(-150%);
+  }
+}
+
+@keyframes fade-keyframes {
+  0% {
+    background-color: var(--background);
+  }
+  2% {
+    background-color: transparent;
+  }
+  98% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--background);
   }
 }

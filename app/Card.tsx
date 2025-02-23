@@ -31,7 +31,7 @@ export default function Card({ header = "" }) {
   }, []);
 
   return (
-    <div className="w-[300px] h-[300px] rounded-xl border shadow text-black p-4 flex flex-col gap-2 bg-white card z-0">
+    <div className="w-[300px] h-[300px] cursor-pointer rounded-xl border shadow text-black p-4 flex flex-col gap-2 bg-white card z-0">
       <div className="bg-slate-200 rounded-md h-[70%] overflow-hidden relative">
         <Image
           src={meal && meal.strMealThumb ? meal.strMealThumb : "/dummy.jpg"}
