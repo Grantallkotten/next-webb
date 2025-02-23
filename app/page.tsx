@@ -5,45 +5,29 @@ import { useEffect, useRef, useState } from "react";
 import Card from "./Card";
 
 export default function Home() {
-  const [cards] = useState([
-    { id: 1, text: "Card 1" },
-    { id: 2, text: "Card 2" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 1, text: "Card 1" },
-    { id: 2, text: "Card 2" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 1, text: "Card 1" },
-    { id: 2, text: "Card 2" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 1, text: "Card 1" },
-    { id: 2, text: "Card 2" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-    { id: 3, text: "Card 3" },
-  ]);
+  const [cardCount] = useState(21);
+
+  const cards = Array.from({ length: cardCount }, (_, index) => ({
+    id: index + 1,
+    text: `Card ${index + 1}`,
+  }));
 
   return (
     <div className="relative overflow-hidden w-full">
       <div className="w-full box-border">
-        <div className="w-[700px] h-[600px] flex justify-center relativ bg-red-400">
+        <div className="w-screen h-screen overflow-hidden flex justify-center relative ">
           <div
-            className="w-[100%] h-[100%] absolute z-10 scrollAnimation-bg"
+            className="absolute z-10 inset-0 pointer-events-none scrollAnimation-bg"
             style={{
-              pointerEvents: "none",
-              boxShadow: "inset 0 0 10px 10px var(--background)",
+              background: `
+                linear-gradient(to top, var(--background) 0, transparent 80px),
+                linear-gradient(to bottom, var(--background) 0, transparent 80px),
+                linear-gradient(to left, var(--background) 0, transparent 80px),
+                linear-gradient(to right, var(--background) 0, transparent 80px)
+              `,
             }}
           />
-          <div className="grid grid-cols-1 gap-4 scrollAnimation">
+          <div className="grid grid-cols-3 gap-4 scrollAnimation">
             {cards.map((card, index) => (
               <Card header={card.text} key={card.id + "-" + index} />
             ))}

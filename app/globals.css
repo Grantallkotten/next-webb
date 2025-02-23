@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #04050f;
+  --background: #fbfbff; /* #04050f */
   --foreground: #171717;
 }
 
@@ -20,16 +20,35 @@ body {
 }
 
 .scrollAnimation {
-  animation: scroll-keyframes 20s linear infinite;
+  animation: scroll-keyframes 30s linear infinite;
+}
+
+.scrollAnimation-bg {
+  animation: scroll-keyframes-bg 30s linear infinite;
 }
 
 @keyframes scroll-keyframes {
   from {
-    transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
-      translateY(0%);
+    transform: translateX(0) rotateX(20deg) skewX(-20deg) translateY(-10%)
+      rotateY(0) skewY(0) translateZ(0) rotateZ(20deg);
   }
   to {
-    transform: rotateX(18deg) rotate(18deg) skewX(-18deg) translateZ(0)
-      translateY(-100%);
+    transform: translateX(0) rotateX(20deg) skewX(-20deg) translateY(-60%)
+      rotateY(0) skewY(0) translateZ(0) rotateZ(20deg);
+  }
+}
+
+@keyframes scroll-keyframes-bg {
+  0% {
+    background-color: var(--background);
+  }
+  2% {
+    background-color: transparent;
+  }
+  98% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--background);
   }
 }
