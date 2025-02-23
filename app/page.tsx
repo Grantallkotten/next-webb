@@ -47,9 +47,8 @@ function HomeStart({ children }: HomeStartProps) {
   return (
     <div className="w-[100%] h-screen overflow-hidden flex justify-center relative">
       <div
-        className="absolute inset-0 z-10 fadeAnimation"
+        className="absolute inset-0 z-10 pointer-events-none fadeAnimation"
         style={{
-          pointerEvents: "none",
           background: `
               linear-gradient(to top, var(--background) 0, transparent 60px),
               linear-gradient(to bottom, var(--background) 0, transparent 60px),
@@ -58,7 +57,9 @@ function HomeStart({ children }: HomeStartProps) {
             `,
         }}
       />
-      <div className="absolute inset-0 z-20">{children}</div>
+      <div className="absolute inset-0 z-20 pointer-events-none">
+        <div className="pointer-events-auto">{children}</div>
+      </div>
       <div className="grid grid-cols-4 gap-4 scrollAnimation">
         {cards.map((card, index) => (
           <Card header={card.text} key={card.id + "-" + index} />
