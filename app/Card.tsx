@@ -13,6 +13,7 @@ interface Meal {
 
 export default function Card({ header = "" }) {
   const [meal, setMeal] = useState<Meal | null>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const fetchMeal = async () => {
     try {
@@ -30,17 +31,28 @@ export default function Card({ header = "" }) {
     fetchMeal();
   }, []);
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
-    <div className="w-[300px] h-[300px] cursor-pointer rounded-xl border shadow text-black p-4 flex flex-col gap-2 bg-white card z-0">
+    <div
+      className={`w-[300px] h-[300px] cursor-pointer rounded-xl border shadow text-black p-4 flex flex-col gap-2 bg-white card z-0 ${
+        imageLoaded ? "visible" : "invisible"
+      }`}
+    >
       <div className="bg-slate-200 rounded-md h-[70%] overflow-hidden relative">
-        <Image
-          src={meal && meal.strMealThumb ? meal.strMealThumb : "/dummy.jpg"}
-          alt="Meal Thumbnail"
-          fill={true}
-          sizes="100%"
-          style={{ objectFit: "cover" }}
-          priority
-        />
+        {meal?.strMealThumb && (
+          <Image
+            src={meal.strMealThumb}
+            alt="Meal Thumbnail"
+            fill={true}
+            sizes="100%"
+            style={{ objectFit: "cover" }}
+            priority
+            onLoad={handleImageLoad}
+          />
+        )}
       </div>
       <div className="flex flex-col gap-2 flex-1">
         <div className="text-md font-bold flex-1">{header}</div>
