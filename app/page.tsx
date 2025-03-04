@@ -14,7 +14,10 @@ function HomeStart({ children }: HomeStartProps) {
   );
 
   return (
-    <div className="w-[100%] h-screen overflow-hidden flex justify-center relative">
+    <div
+      className="w-[100%] overflow-hidden flex justify-center relative"
+      style={{ height: `calc(100vh - var(--nav-height))` }}
+    >
       <div
         className="absolute inset-0 z-10 pointer-events-none fadeAnimation"
         style={{
@@ -42,7 +45,11 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <HomeStart>
-        <div>Hello there</div>
+        <div className="absolute w-full h-full flex justify-center items-center pointer-events-none">
+          <div className="color-[var(--forground)] text-[8rem] [text-shadow:0px_0px_1rem_rgba(0,0,0,1)] font-extrabold pointer-events-auto logo-animation">
+            Hello there
+          </div>
+        </div>
       </HomeStart>
       <div className="h-screen">Hej</div>
     </div>

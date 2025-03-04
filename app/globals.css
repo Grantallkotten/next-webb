@@ -4,8 +4,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #edeff8;
-  --foreground: #0a0c23;
+  --background: #131523;
+  --foreground: #edeff8;
+
+  --nav-height: 60px;
 }
 
 body {
@@ -20,6 +22,10 @@ body {
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.logo-animation {
+  animation: logo-keyframes 1s ease-in-out forwards;
 }
 
 .scrollAnimation {
@@ -53,5 +59,16 @@ body {
   }
   100% {
     background-color: var(--background);
+  }
+}
+
+@keyframes logo-keyframes {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

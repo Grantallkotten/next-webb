@@ -7,7 +7,7 @@ const Navbar = () => {
   const pathname = usePathname(); // Get the current route
 
   return (
-    <nav className="bg-gray-900 text-white p-4">
+    <nav className="bg-wh color-[var(--forground)] p-4 h-[var(--nav-height)]">
       <ul className="flex space-x-4">
         <li className={pathname === "/" ? "font-bold" : ""}>
           <Link href="/">Home</Link>
